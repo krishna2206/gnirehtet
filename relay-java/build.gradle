@@ -3,17 +3,17 @@ apply plugin: 'application'
 mainClassName = 'com.genymobile.gnirehtet.Main'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
 }
 
 jar {
     manifest {
         attributes(
-                'Main-Class': mainClassName
+            'Main-Class': mainClassName
         )
     }
-    baseName 'gnirehtet'
+    archiveBaseName.set('gnirehtet') // Updated property name
 }
 
 task assembleDebug(dependsOn: 'jar')
